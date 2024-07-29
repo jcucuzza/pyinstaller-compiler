@@ -13,5 +13,5 @@ jobs:
       - name: Build and push the image
         run: |
           docker login --username jcucuzza --password ${{ secrets.GH_PAT }} ghcr.io
-          docker build . --tag ghcr.io/jcucuzza/pyinstaller-compiler-linux:latest
+          docker build -f linux.Dockerfile . --tag ghcr.io/jcucuzza/pyinstaller-compiler-linux:latest
           docker push ghcr.io/jcucuzza/pyinstaller-compiler-linux:latest
