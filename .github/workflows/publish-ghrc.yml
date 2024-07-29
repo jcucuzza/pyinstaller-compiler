@@ -1,0 +1,17 @@
+name: Docker Image CI for GHCR
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_publish_linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build and push the image
+        run: |
+          docker login --username jcucuzza --password ${{ secrets.GH_PAT }} ghcr.io
+          docker build . --tag ghcr.io/jcucuzza/pyinstaller-compiler-linux:latest
+          docker push ghcr.io/jcucuzza/pyinstaller-compiler-linux:latest

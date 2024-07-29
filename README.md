@@ -10,7 +10,7 @@ Here is another alternative to cross-compiling Python applications for different
 ### Run the following command in command prompt (windows)/terminal (mac)
 
 ```
-docker run -v ${PWD}/:/app/ jcucuzza/pyinstaller-compiler-linux \
+docker run -v ${PWD}/:/app/ ghcr.io/jcucuzza/pyinstaller-compiler-linux \
     "pyinstaller -F main.py --onefile --name hello-world --clean"
 ```
 
